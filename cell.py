@@ -64,16 +64,20 @@ class Cell:
 
     @property
     def surrounded_cells(self):
+        index = [-1, 0, 1]
         cells = [
-            self.get_cell_by_axis(self.x - 1, self.y -1),
-            self.get_cell_by_axis(self.x - 1, self.y),
-            self.get_cell_by_axis(self.x - 1, self.y + 1),
-            self.get_cell_by_axis(self.x, self.y - 1),
-            self.get_cell_by_axis(self.x + 1, self.y - 1),
-            self.get_cell_by_axis(self.x + 1, self.y),
-            self.get_cell_by_axis(self.x + 1, self.y + 1),
-            self.get_cell_by_axis(self.x, self.y + 1)
+            # self.get_cell_by_axis(self.x - 1, self.y -1),
+            # self.get_cell_by_axis(self.x - 1, self.y),
+            # self.get_cell_by_axis(self.x - 1, self.y + 1),
+            # self.get_cell_by_axis(self.x, self.y - 1),
+            # self.get_cell_by_axis(self.x + 1, self.y - 1),
+            # self.get_cell_by_axis(self.x + 1, self.y),
+            # self.get_cell_by_axis(self.x + 1, self.y + 1),
+            # self.get_cell_by_axis(self.x, self.y + 1)
         ]
+        for x in index:
+            for y in index:
+                cells.append(self.get_cell_by_axis(self.x - x, self.y - y))
 
         cells = [cell for cell in cells if cell is not None]
         return cells
